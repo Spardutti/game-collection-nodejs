@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+    h1=title
+    div(class="game-container")
+        each game in gameList
+            p
+                a(href=game.url) #{game.name} 
+                | (#{game.company.name})

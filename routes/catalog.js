@@ -13,6 +13,9 @@ router.get("/", gameController.homePage);
 // GAME LIST
 router.get("/games", gameController.gameList);
 
+// SINGLE GAME
+router.get("/games/:id", gameController.singleGame)
+
 // COMPANY ROUTES //
 
 //COMPANY LIST

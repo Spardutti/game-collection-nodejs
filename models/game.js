@@ -12,7 +12,7 @@ let gameSchema = new Schema({
 })
 
 gameSchema.virtual("url").get(function () {
-    return "catalog/game/" + this._id
+    return "/home/games/" + this._id
 })
 
 module.exports = mongoose.model("Game", gameSchema );

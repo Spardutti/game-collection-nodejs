@@ -6,15 +6,17 @@ html
   body
     div(class="container")
       div(class="header-navbar")
-        h1 My Games Collection
+        div
+          h1 My Games Collection
         div(class="header-links")
           p
-            a(href="") Home
+            a(href="/") Home
           p 
-            a(href="") Games
+            a(href="/home/games") Games
           p
-            a(href="") Companies
+            a(href="/home/companies") Companies
           p
-            a(href="") Genres
+            a(href="/home/genres") Genres
 
-      block content
+      div(class="content")
+        block content

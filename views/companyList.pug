@@ -1,0 +1,10 @@
+extends layout
+
+block content
+
+    h1=title
+    div(class="company-container")
+        each company in companyList
+            p
+                a(href=company.url) #{company.name} 
+                

@@ -30,6 +30,17 @@ exports.homePage = function (req, res) {
 }
 
 //DISPLAY GAME LIST //
-exports.gameList = function (req, res) {
-    res.send("GAME LIST")
+exports.gameList = function (req, res, next) {
+    game.find({}, "name company")
+        .populate("company")
+        .exec(function (err, listGame) {
+        if (err) { return next(err) }
+        //succes getting data
+        res.render("gameList", {title: "Game List", gameList: listGame})
+    })
+}
+
+// DISPLAY SINGLE GAME //
+exports.singleGame = function (req, res, next) {
+    res.send("SINGLE GAME " + req.params.id)
 }

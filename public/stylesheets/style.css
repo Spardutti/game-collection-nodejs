@@ -353,6 +353,7 @@ template {
   width: 80vw;
   background-color: darkred;
   margin: auto;
+  height: 100vh;
 }
 
 /* HEADER */
@@ -361,16 +362,40 @@ template {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
-.header-navbar h1 {
-  width: 100vw;
-  text-align: center;
-}
 
 .header-links {
   width: 100vw;
   display: flex;
   justify-content: space-around;
+}
+.header-navbar a {
+  color: yellow;
+  font-weight: bold;
+}
+
+/* CONTENT */
+.content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* GAME LIST */
+.game-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+
+/* COMPANIES LIST */
+.company-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }

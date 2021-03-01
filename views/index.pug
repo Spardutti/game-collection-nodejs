@@ -1,5 +1,15 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div
+    h1= title
+    p This is the genreal information of the library
+
+    if error 
+      p no data to display
+    else
+      
+      ul 
+        li Games: !{data.gameCount}
+        li Companies: !{data.companyCount}
+        li Genres: !{data.genreCount}

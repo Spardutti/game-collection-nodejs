@@ -2,15 +2,15 @@ let mongoose = require("mongoose");
 
 let Schema = mongoose.Schema;
 
-let companySchema = new Schema({
+let CompanySchema = new Schema({
     name: { type: String, required: true, maxlength: 100 },
     year: { type: Date, required: true },
     description: {type: String, required: true}
 })
 
-companySchema.virtual("url").get(function () {
-    return "/catalog/company/" + this._id;
+CompanySchema.virtual("url").get(function () {
+    return "/home/companies/" + this._id;
 })
 
 
-module.exports = mongoose.model("Company", companySchema);
+module.exports = mongoose.model("Company", CompanySchema);
