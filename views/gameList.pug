@@ -4,7 +4,12 @@ block content
 
     h1=title
     div(class="game-container")
+        div(class="grid-info")
+            p Game
+            p Company
         each game in gameList
-            p
-                a(href=game.url) #{game.name} 
-                | (#{game.company.name})
+            div(class="gamelist-grid")
+                a(href=game.url) #{game.name}    
+                a(href=game.company.url)  #{game.company.name} 
+
+

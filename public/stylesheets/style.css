@@ -348,12 +348,17 @@ template {
   display: none;
 }
 
+body {
+  background-color: black;
+}
+
 /* CONTAINER */
 .container {
   width: 80vw;
   background-color: darkred;
   margin: auto;
   height: 100vh;
+  box-shadow: 0px 0px 20px 5px rgb(117, 113, 113);
 }
 
 /* HEADER */
@@ -381,6 +386,11 @@ template {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 0px 0px 10px 1px white;
+  border-radius: 15px;
+  margin-top: 60px;
+  padding: 10px 10px 30px 10px
 }
 
 /* GAME LIST */
@@ -390,6 +400,40 @@ template {
   justify-content: center;
   width: 100%;
 }
+.gamelist-grid{
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0px 0px 20px 5px #e74a4a;
+  border-radius: 20px;
+}
+.grid-info {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 60%;
+  text-align: center;
+  font-size: 25px;
+}
+.game-container a {
+  color: cyan;
+  font-size: 20px;
+}
+
+/* SINGLE GAME */
+.single-game-container {
+}
+.single-game-container h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.single-game-container a {
+  color: cyan;
+}
+
 
 
 /* COMPANIES LIST */
@@ -398,4 +442,24 @@ template {
   flex-wrap: wrap;
   justify-content: center;
   width: 100%;
+}
+.info{
+  text-align: center;
+  width: 60%;
+  margin-top: 40px;
+  font-size: 25px;
+}
+
+.company-list  {
+  padding: 10px;
+  width: 60%;
+  text-align: center;
+  box-shadow: 0px 0px 20px 5px #e74a4a;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.company-list a {
+  color: cyan;
 }

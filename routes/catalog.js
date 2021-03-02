@@ -8,7 +8,7 @@ let genreController = require("../controllers/genreController");
 // HOME PAGE //
 router.get("/", gameController.homePage);
 
-// GAME ROUTES //
+///////////////////////////////////// GAME ROUTES //
 
 // GAME LIST
 router.get("/games", gameController.gameList);
@@ -16,12 +16,15 @@ router.get("/games", gameController.gameList);
 // SINGLE GAME
 router.get("/games/:id", gameController.singleGame)
 
-// COMPANY ROUTES //
+///////////////////////////////////// COMPANY ROUTES //
 
 //COMPANY LIST
 router.get("/companies", companyController.companyList);
 
-// GENRE ROUTES //
+//SINGLE COMPANY
+router.get("/companies/:id", companyController.singleCompany);
+
+///////////////////////////////////// GENRE ROUTES //
 
 //GENRE LIST
 

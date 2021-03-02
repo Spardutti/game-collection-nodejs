@@ -6,7 +6,7 @@ let gameSchema = new Schema({
     name: { type: String, required: true, maxlength: 100 },
     company: { type: Schema.Types.ObjectID, ref: "Company", required: true },
     rating: { type: Number },
-    status: { enum: ["Completed", "Playing", "Wish List", "Collecting Dust"] },
+    status: { type:String, enum: ["Completed", "Playing", "Wish List", "Collecting Dust"], default: "Playing" },
     genre: { type: Schema.Types.ObjectID, ref: "Genre" },
     description: {type: String}
 })

@@ -4,7 +4,9 @@ block content
 
     h1=title
     div(class="company-container")
+        div(class="info")
+            p Company
         each company in companyList
-            p
+            div(class="company-list")
                 a(href=company.url) #{company.name} 
                 

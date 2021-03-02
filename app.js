@@ -9,12 +9,14 @@ db.on("error", console.error.bind(console, "MongoDB connection error:"));
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+let multer = require("multer");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 let catalog = require("./routes/catalog");
 
 var app = express();
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

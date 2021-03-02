@@ -3,8 +3,7 @@ let mongoose = require("mongoose");
 let Schema = mongoose.Schema;
 
 let genreSchema = new Schema({
-    
-    genre: {enum: ["Fantasy", "Role Playing", "Action", "FPS"]}
+    name: String    
 })
 
 genreSchema.virtual("url").get(function () {

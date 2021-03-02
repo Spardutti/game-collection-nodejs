@@ -1,11 +1,12 @@
 let express = require("express");
 let router = express.Router();
+let async = require("async");
 
-let Company = require("../models/company");
+let company = require("../models/company");
 
 //DISPLAY COMPANY LIST
 exports.companyList = function (req, res, next) {
-  Company.find({}, "name").exec(function (err, listCompany) {
+  company.find({}, "name").exec(function (err, listCompany) {
     if (err) {
       return next(err);
     }
@@ -15,4 +16,25 @@ exports.companyList = function (req, res, next) {
       companyList: listCompany,
     });
   });
+};
+
+//DISPLAY SINGLE COMPANY
+exports.singleCompany = function (req, res, next) {
+  async.parallel(
+    {
+      company: function (callback) {
+        company.findById(req.params.id).exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) return next(err);
+      if (results.company == null) {
+        let err = new Error("Company not found");
+        err.status = 404;
+        return next(err);
+      }
+      //Success
+      res.render("singleCompany", { title: results.company.name, year: results.company.year, description: results.company.description });
+    }
+  );
 };

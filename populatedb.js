@@ -62,15 +62,15 @@ function genreCreate(name, cb) {
   });
 }
 
-function gameCreate(name, company, rating, genre, description, cb) {
+function gameCreate(name, company, rating, genre, description, status, cb) {
   gamedetail = {
     name: name,
     company: company,
-    genre: genre,
     rating: rating,
     description: description,
   };
   if (genre != false) gamedetail.genre = genre;
+  if(status != false) gamedetail.status = status
 
   var game = new Game(gamedetail);
   game.save(function (err) {
@@ -110,6 +110,7 @@ function createGames(cb) {
           "10",
           genres[0],
           "description",
+          "Completed",
           callback
         );
       },
