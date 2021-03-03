@@ -2,8 +2,12 @@ extends layout
 
 block content
   div
+    div(class="form-grid")
+      a(href="/home/creategame") Add Game
+      a(href="/home/companyform") Add Company
+      a(href="/home/genreform") Add Genre
     h1= title
-    p This is the genreal information of the library
+    p This is the general information of the Games
 
     if error 
       p no data to display

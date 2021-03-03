@@ -1,4 +1,5 @@
 let mongoose = require("mongoose");
+const { DateTime } = require("luxon");
 
 let Schema = mongoose.Schema;
 
@@ -12,5 +13,8 @@ CompanySchema.virtual("url").get(function () {
     return "/home/companies/" + this._id;
 })
 
+CompanySchema.virtual("yearFormatted").get(function() {
+    return DateTime.fromJSDate(this.year).toLocaleString(DateTime.DATE_MED);
+})
 
 module.exports = mongoose.model("Company", CompanySchema);

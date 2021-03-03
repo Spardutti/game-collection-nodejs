@@ -1,0 +1,11 @@
+extends layout 
+
+block content
+    h1(class="form-title") #{title}
+
+    form(method="POST" action="" class="genre-form")
+        div
+            input(type='text', placeholder='Fantasy, Action..' name='name' value=(undefined===genre ? '' : genre.name))    
+        div(class="btn")
+            button(type="submit") Submit
+    p=msg

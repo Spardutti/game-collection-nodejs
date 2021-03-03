@@ -8,7 +8,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
+html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -174,7 +174,8 @@ textarea {
  */
 
 button,
-input { /* 1 */
+input {
+  /* 1 */
   overflow: visible;
 }
 
@@ -184,7 +185,8 @@ input { /* 1 */
  */
 
 button,
-select { /* 1 */
+select {
+  /* 1 */
   text-transform: none;
 }
 
@@ -368,8 +370,8 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   padding-top: 20px;
+  font-size: 25px;
 }
-
 
 .header-links {
   width: 100vw;
@@ -390,7 +392,29 @@ body {
   box-shadow: 0px 0px 10px 1px white;
   border-radius: 15px;
   margin-top: 60px;
-  padding: 10px 10px 30px 10px
+  padding: 15px 10px 30px 10px;
+}
+
+.form-grid {
+  display: flex;
+  justify-content: space-around;
+}
+.form-grid a {
+  background-color: yellow;
+  box-shadow: 0px 0px 10px 1px black;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  font-weight: bold;
+  cursor:pointer;
+  text-shadow: 0px 1px 1px red;
+  margin: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.form-grid a:hover {
+  transform: scale(1.1);
 }
 
 /* GAME LIST */
@@ -400,7 +424,7 @@ body {
   justify-content: center;
   width: 100%;
 }
-.gamelist-grid{
+.gamelist-grid {
   padding: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -434,8 +458,6 @@ body {
   color: cyan;
 }
 
-
-
 /* COMPANIES LIST */
 .company-container {
   display: flex;
@@ -443,14 +465,14 @@ body {
   justify-content: center;
   width: 100%;
 }
-.info{
+.info {
   text-align: center;
   width: 60%;
   margin-top: 40px;
   font-size: 25px;
 }
 
-.company-list  {
+.company-list {
   padding: 10px;
   width: 60%;
   text-align: center;
@@ -462,4 +484,61 @@ body {
 
 .company-list a {
   color: cyan;
+}
+/* COMPANY FORM */
+
+.form-title {
+  text-align: center;
+  width: 100%;
+  font-size: 45px;
+  color: black;
+}
+.genre-form {
+width: 300px;
+}
+
+.genre-form input, textarea {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: cyan;
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+
+.genre-form:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+.genre-form div {
+  margin-top: 30px;
+}
+
+.btn {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn button {
+  margin-left: 10px;
+  background-color: cyan;
+  border: none;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: darkred;
+}
+
+.btn button:hover {
+  transform: scale(1.1);
+  transition: .2s;
 }

@@ -79,3 +79,8 @@ exports.singleGame = function (req, res, next) {
     }
   );
 };
+
+//GET CREATE GAME FORM
+exports.addGame = function (req, res, next) {
+  res.send("form")
+}
