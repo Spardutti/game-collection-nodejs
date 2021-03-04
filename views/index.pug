@@ -1,19 +1,21 @@
 extends layout
 
 block content
-  div
+  div(class="content-container")
     div(class="form-grid")
       a(href="/home/creategame") Add Game
       a(href="/home/companyform") Add Company
       a(href="/home/genreform") Add Genre
-    h1= title
-    p This is the general information of the Games
+    div(class="content-info")
+      h1= title
+      div
+        p This is the general information of the Games
 
-    if error 
-      p no data to display
-    else
-      
-      ul 
-        li Games: !{data.gameCount}
-        li Companies: !{data.companyCount}
-        li Genres: !{data.genreCount}
+      if error 
+        p no data to display
+      else
+      div(class="content-list")
+        ul 
+          li Games: !{data.gameCount}
+          li Companies: !{data.companyCount}
+          li Genres: !{data.genreCount}

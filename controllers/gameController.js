@@ -1,9 +1,11 @@
 let express = require("express");
 let router = express.Router();
 
-let game = require("../models/game");
-let genre = require("../models/genre");
-let company = require("../models/company");
+let Game = require("../models/game");
+let Genre = require("../models/genre");
+let Company = require("../models/company");
+
+let { body, validationResult } = require("express-validator");
 
 let async = require("async");
 
@@ -13,13 +15,13 @@ exports.homePage = function (req, res) {
     {
       gameCount: function (callback) {
         //empty object as match to find all documents
-        game.countDocuments({}, callback);
+        Game.countDocuments({}, callback);
       },
       companyCount: function (callback) {
-        company.countDocuments({}, callback);
+        Company.countDocuments({}, callback);
       },
       genreCount: function (callback) {
-        genre.countDocuments({}, callback);
+        Genre.countDocuments({}, callback);
       },
     },
     function (err, results) {
@@ -34,7 +36,7 @@ exports.homePage = function (req, res) {
 
 //DISPLAY GAME LIST //
 exports.gameList = function (req, res, next) {
-  game
+  Game
     .find({}, "name company")
     .populate("company")
     .exec(function (err, listGame) {
@@ -51,7 +53,7 @@ exports.singleGame = function (req, res, next) {
   async.parallel(
     {
       game: function (callback) {
-        game
+        Game
           .findById(req.params.id)
           .populate("company")
           .populate("genre")
@@ -82,5 +84,70 @@ exports.singleGame = function (req, res, next) {
 
 //GET CREATE GAME FORM
 exports.addGame = function (req, res, next) {
-  res.send("form")
-}
+  async.parallel(
+    {
+      companies: function (callback) {
+        Company.find(callback);
+      },
+      genres: function (callback) {
+        Genre.find(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      }
+      res.render("gameForm", {
+        title: "Add Game",
+        companies: results.companies,
+        genres: results.genres,
+        status: ["Completed", "Playing", "Wish List", "Collecting Dust"],
+      });
+    }
+  );
+};
+
+//POST CREATE FORM
+exports.addGamePost = [
+  //Process the request after validation
+  (req, res, next) => {
+    //extract errors
+    const errors = validationResult(req);
+
+    //Create a Game object with validation results
+    let game = new Game({
+      name: req.body.name,
+      company: req.body.company,
+      rating: req.body.rating,
+      genre: req.body.genre,
+      status: req.body.status,
+      description: req.body.description
+    });
+
+    if (!errors.isEmpty()) {
+      //There are errors, display the from again with sanitized fields
+
+      //Get all authors and genres from.
+      async.parallel({
+        companies: function (callback) {
+          Company.find(callback)
+        },
+        genres: function (callback) {
+          Genre.find(callback)
+        },
+      }, function (err, results) {
+    
+          res.render("gameForm", {title: "Add Game", companies:results.companies, genres:results.genres, game:game,})
+      });
+      return;
+    }
+    else {
+      // Save Game
+      game.save(function (err) {
+        if (err) { return next(err) }
+        //Success
+        res.redirect(game.url);
+      })
+    }
+  }
+];

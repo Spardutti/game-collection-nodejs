@@ -1,0 +1,32 @@
+extends layout 
+
+block content
+    
+    h1(class="form-title") #{title}
+
+    form(method="POST" action="" class="genre-form")
+        div
+            input(type='text', placeholder='Game Name' name='name')
+        div 
+            input(type="number", name="rating", placeholder="Personal Rating")
+        div
+            textarea(name="description", placeholder="Brief Review" cols="30", rows="6")
+        div
+            select(type="select", placeholder="Select Company")
+                for company in companies
+                    option(value=company.name) #{company._id}        
+        div
+            select(type="select", placeholder="Select Genre")
+                for genre in genres
+                    option(value=genre._id) #{genre.name}  
+        div 
+            select(type="select", placeholder="Select Status")
+                for stat in status
+                    option(value=stat selected=stat) #{stat}                                        
+        div(class="btn")
+            button(type="submit") Submit
+    if errors
+        each error in errors
+            li error.msg
+
+NO ESTA RECIVIENDO EL NOMBRE DE LAS OPTIONS

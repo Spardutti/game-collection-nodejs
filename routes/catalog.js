@@ -19,6 +19,9 @@ router.get("/games/:id", gameController.singleGame)
 //GAME FORM
 router.get("/creategame", gameController.addGame)
 
+//POST GAME FORM
+router.post("/creategame", gameController.addGamePost)
+
 ///////////////////////////////////// COMPANY ROUTES //
 
 //GET FORM
