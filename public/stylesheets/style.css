@@ -354,6 +354,31 @@ body {
   background-color: gray;
 }
 
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.genre-form:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
 /* CONTAINER */
 .container {
   width: 80vw;
@@ -433,7 +458,7 @@ body {
   border-radius: 10px;
   padding: 5px 10px 5px 10px;
   font-weight: bold;
-  cursor:pointer;
+  cursor: pointer;
   text-shadow: 0px 1px 1px red;
   margin: 10px;
   color: yellow;
@@ -444,7 +469,7 @@ body {
 .form-grid a:hover {
   transform: scale(1.1);
 }
-
+/********************************** GAMES */
 /* GAME LIST */
 .game-container {
   display: flex;
@@ -473,11 +498,41 @@ body {
   color: black;
   font-size: 30px;
 }
+.game-form {
+  width: 300px;
+}
+
+.game-form input,
+textarea {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: cyan;
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+}
+.game-form select {
+  background-color: cyan;
+  padding: 10px;
+  width: 111%;
+  text-align: center;
+  color:gray;
+  font-family: "Roboto", sans-serif;
+
+}
+
+.game-form div {
+  margin-top: 10px;
+}
 
 /* SINGLE GAME */
-.single-game-container {
-  
-}
+
 .single-game-container h1 {
   font-size: 50px;
   font-weight: bold;
@@ -485,9 +540,10 @@ body {
 }
 
 .single-game-container a {
-  color: cyan;
+  color: black;
+  font-weight: bold;
 }
-
+/*************************************** COMPANIES */
 /* COMPANIES LIST */
 .company-container {
   display: flex;
@@ -514,7 +570,7 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   height: 450px;
-  overflow: scroll;
+  overflow: hidden;
 }
 .company-list div {
   width: 100%;
@@ -533,14 +589,15 @@ body {
   color: black;
 }
 .genre-form {
-width: 300px;
+  width: 300px;
 }
 
-.genre-form input, textarea {
-  font-family: 'Roboto', sans-serif;
+.genre-form input,
+textarea {
+  font-family: "Roboto", sans-serif;
   color: #333;
   font-size: 1.2rem;
-	margin: 0 auto;
+  margin: 0 auto;
   padding: 1.5rem 2rem;
   border-radius: 0.2rem;
   background-color: cyan;
@@ -550,13 +607,15 @@ width: 300px;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
 }
-
-.genre-form:placeholder-shown + .form__label {
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: translateY(-4rem);
-  transform: translateY(-4rem);
+.genre-form select {
+  color: #333;
+  background-color: cyan;
+  text-decoration: none;
+  padding: 10px;
+  width: 110%;
+  text-align: center;
 }
+
 .genre-form div {
   margin-top: 30px;
 }
@@ -579,5 +638,5 @@ width: 300px;
 
 .btn button:hover {
   transform: scale(1.1);
-  transition: .2s;
+  transition: 0.2s;
 }

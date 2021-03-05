@@ -36,8 +36,7 @@ exports.homePage = function (req, res) {
 
 //DISPLAY GAME LIST //
 exports.gameList = function (req, res, next) {
-  Game
-    .find({}, "name company")
+  Game.find({}, "name company")
     .populate("company")
     .exec(function (err, listGame) {
       if (err) {
@@ -53,8 +52,7 @@ exports.singleGame = function (req, res, next) {
   async.parallel(
     {
       game: function (callback) {
-        Game
-          .findById(req.params.id)
+        Game.findById(req.params.id)
           .populate("company")
           .populate("genre")
           .exec(callback);
@@ -110,6 +108,13 @@ exports.addGame = function (req, res, next) {
 //POST CREATE FORM
 exports.addGamePost = [
   //Process the request after validation
+
+  body("name", "Name must not be empty.").isLength({ min: 1 }).escape(),
+  body("company", "Company must not be empty.").isLength({ min: 1 }).escape(),
+  body("rating", "Rating must not be empty.").isLength({ min: 1 }).escape(),
+  body("description", "Description must not be empty.")
+    .isLength({ min: 1 })
+    .escape(),
   (req, res, next) => {
     //extract errors
     const errors = validationResult(req);
@@ -121,33 +126,42 @@ exports.addGamePost = [
       rating: req.body.rating,
       genre: req.body.genre,
       status: req.body.status,
-      description: req.body.description
+      description: req.body.description,
     });
 
     if (!errors.isEmpty()) {
       //There are errors, display the from again with sanitized fields
 
       //Get all authors and genres from.
-      async.parallel({
-        companies: function (callback) {
-          Company.find(callback)
+      async.parallel(
+        {
+          companies: function (callback) {
+            Company.find(callback);
+          },
+          genres: function (callback) {
+            Genre.find(callback);
+          },
         },
-        genres: function (callback) {
-          Genre.find(callback)
-        },
-      }, function (err, results) {
-    
-          res.render("gameForm", {title: "Add Game", companies:results.companies, genres:results.genres, game:game,})
-      });
+        function (err, results) {
+          res.render("gameForm", {
+            title: "Add Game",
+            companies: results.companies,
+            genres: results.genres,
+            game: game,
+            errors: errors.array(),
+          });
+        }
+      );
       return;
-    }
-    else {
+    } else {
       // Save Game
       game.save(function (err) {
-        if (err) { return next(err) }
+        if (err) {
+          return next(err);
+        }
         //Success
         res.redirect(game.url);
-      })
+      });
     }
-  }
+  },
 ];
