@@ -485,6 +485,9 @@ input[type=number] {
   text-align: center;
   box-shadow: 0px 0px 20px 5px black;
   border-radius: 20px;
+  max-height: 400px;
+  background-color: black;
+  color: white;
 }
 .grid-info {
   margin-top: 40px;
@@ -495,8 +498,9 @@ input[type=number] {
   font-size: 30px;
 }
 .game-container a {
-  color: black;
+  color: white;
   font-size: 30px;
+  text-shadow: 0px 1px 1px  white
 }
 .game-form {
   width: 300px;
@@ -536,9 +540,14 @@ textarea {
 .single-game-container h1 {
   font-size: 50px;
   font-weight: bold;
-  text-decoration: blue;
 }
 
+.single-game-container h2, h3 {
+  color: gray;
+}
+.single-game-container span {
+  color: black;
+}
 .single-game-container a {
   color: black;
   font-weight: bold;
@@ -571,14 +580,16 @@ textarea {
   justify-content: center;
   height: 450px;
   overflow: hidden;
+  background-color: black;
 }
 .company-list div {
   width: 100%;
 }
 
 .company-list a {
-  color: black;
+  color: white;
   font-size: 25px;
+  text-shadow: 0px 1px 1px white;
 }
 /* COMPANY FORM */
 
@@ -639,4 +650,12 @@ textarea {
 .btn button:hover {
   transform: scale(1.1);
   transition: 0.2s;
+}
+/* COMPANY DELETE */
+.delete-company-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center ;
+  flex-direction: column;
+  align-items: center;
 }

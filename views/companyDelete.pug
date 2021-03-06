@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    div(class="delete-company-container")
+        h1 #{company.name}
+        if companyGames.length
+            h4 You need to delete these games before deleting this company.
+                each game in companyGames
+                    ul
+                        li
+                            a(href=game.url) #{game.name}
+        else 
+            p You can safely delete this company  
+            form(action="" method="POST")
+                    input(type="hidden" name="companyid" required="true" value=company._id)
+                    button(type="submit") Delete

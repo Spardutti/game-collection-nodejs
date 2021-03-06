@@ -24,8 +24,17 @@ router.post("/creategame", gameController.addGamePost)
 
 ///////////////////////////////////// COMPANY ROUTES //
 
-//GET FORM
+//GET FORM CREATE
 router.get("/companyForm", companyController.companyForm);
+
+// POST FORM
+router.post("/companyForm", companyController.companyFormPost);
+
+//DELETE COMPANY GET
+router.get("/companies/:id/delete", companyController.companyDelete);
+
+//DELETE COMPANY POST
+router.post("/companies/:id/delete", companyController.companyDeletePost)
 
 //COMPANY LIST
 router.get("/companies", companyController.companyList);
@@ -33,8 +42,6 @@ router.get("/companies", companyController.companyList);
 //SINGLE COMPANY
 router.get("/companies/:id", companyController.singleCompany);
 
-// POST FORM
-router.post("/companyForm", companyController.companyFormPost);
 
 ///////////////////////////////////// GENRE ROUTES //
 

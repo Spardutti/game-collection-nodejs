@@ -4,6 +4,7 @@ let async = require("async");
 const { body, validationResult } = require("express-validator");
 
 let Company = require("../models/company");
+let Game = require("../models/game");
 
 //DISPLAY COMPANY LIST
 exports.companyList = function (req, res, next) {
@@ -39,6 +40,7 @@ exports.singleCompany = function (req, res, next) {
         title: results.company.name,
         year: results.company.yearFormatted,
         description: results.company.description,
+        company: results.company,
       });
     }
   );
@@ -68,7 +70,7 @@ exports.companyFormPost = [
       });
       return;
     } else {
-      //Data is valid create COmpany
+      //Data is valid create Company
 
       let company = new Company({
         name: req.body.name,
@@ -85,3 +87,63 @@ exports.companyFormPost = [
     }
   },
 ];
+
+//DELETE COMPANY GET
+exports.companyDelete = function (req, res, next) {
+  async.parallel(
+    {
+      company: function (callback) {
+        Company.findById(req.params.id).exec(callback);
+      },
+      companyGames: function (callback) {
+        Game.find({ company: req.params.id }).exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      }
+      if (results.company == null) {
+        //No Results.
+        res.redirect("/catalog/companies");
+      }
+      //Succes
+      res.render("companyDelete", {
+        title: "Delete Company",
+        company: results.company,
+        companyGames: results.companyGames,
+        year: results.company.yearFormatted,
+      });
+    }
+  );
+};
+//DELETE COMPANY POST
+exports.companyDeletePost = function (req, res, next) {
+  async.parallel(
+    {
+      company: function (callback) {
+        Company.findById(req.body.companyid).exec(callback);
+      },
+      companyGames: function (callback) {
+        Game.find({ company: req.body.companyid }).exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      }
+      //Success
+      //Company have no games Delete it and redirect to company list
+      Company.findByIdAndRemove(
+        req.body.companyid,
+        function deleteCompany(err) {
+          if (err) {
+            return next(err);
+          }
+          //Success render companylist
+          res.redirect("/home/companies");
+        }
+      );
+    }
+  );
+};
