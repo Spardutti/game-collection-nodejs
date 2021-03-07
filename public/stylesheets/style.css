@@ -369,7 +369,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -384,7 +384,7 @@ input[type=number] {
   width: 80vw;
   background-color: white;
   margin: 20px auto 10px auto;
-  height: 90vh;
+  height: 95vh;
   box-shadow: 0px 0px 20px 7px black;
   border-radius: 10px;
 }
@@ -485,9 +485,11 @@ input[type=number] {
   text-align: center;
   box-shadow: 0px 0px 20px 5px black;
   border-radius: 20px;
-  height: 400px;
+  height: 300px;
   background-color: black;
   color: white;
+  overflow-y: scroll;
+  overflow-y: hidden;
 }
 .grid-info {
   margin-top: 40px;
@@ -500,8 +502,10 @@ input[type=number] {
 .game-container a {
   color: white;
   font-size: 30px;
-  text-shadow: 0px 1px 1px  white
+  text-shadow: 0px 1px 1px white;
 }
+
+/* GAME FORM */
 .game-form {
   width: 300px;
 }
@@ -512,7 +516,7 @@ textarea {
   color: #333;
   font-size: 1.2rem;
   margin: 0 auto;
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 0.2rem;
   background-color: cyan;
   border: none;
@@ -526,348 +530,48 @@ textarea {
   padding: 10px;
   width: 111%;
   text-align: center;
-  color:gray;
+  color: gray;
   font-family: "Roboto", sans-serif;
-
 }
 
 .game-form div {
-  margin-top: 10px;
+  margin-top: 5px;
+}
+
+.game-form textarea {
+  height: 100px;
 }
 
 /* SINGLE GAME */
+
+.single-game-container {
+  max-height: 550px;
+}
+
+.single-game-container textarea {
+  background-color: white;
+  border: 3px solid black;
+  padding: 15px;
+  overflow-y: scroll;
+  overflow: hidden;
+  max-height: 130px;
+}
 
 .single-game-container h1 {
   font-size: 50px;
   font-weight: bold;
 }
 
-.single-game-container h2, h3 {
+.single-game-container h2,
+h3 {
   color: gray;
 }
 .single-game-container span {
   color: black;
-}
-.single-game-container a {
-  color: black;
-  font-weight: bold;
-}
-
-/*DELETE GAME */
-.delete-game-container {
-display: flex;
-flex-wrap: wrap;
-flex-direction: column;
-align-items: center;
-}
-
-.delete-game-container button {
-  background-color: red;
-  color: black;
-  padding: 10px 15px 10px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-/*************************************** COMPANIES */
-/* COMPANIES LIST */
-.company-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
-.info {
-  text-align: center;
-  width: 60%;
-  margin-top: 0px;
-  font-size: 35px;
-}
-
-.company-list {
-  padding: 10px;
-  width: 40%;
-  text-align: center;
-  box-shadow: 0px 0px 10px 5px black;
-  border-radius: 20px;
-  font-size: 20px;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  height: 450px;
-  overflow: hidden;
-  background-color: black;
-}
-.company-list div {
-  width: 100%;
-}
-
-.company-list a {
-  color: white;
-  font-size: 25px;
-  text-shadow: 0px 1px 1px white;
-}
-/* COMPANY FORM */
-
-.form-title {
-  text-align: center;
-  width: 100%;
-  font-size: 45px;
-  color: black;
-}
-.genre-form {
-  width: 300px;
-}
-
-.genre-form input,
-textarea {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
-  background-color: cyan;
-  border: none;
-  width: 90%;
-  display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-}
-.genre-form select {
-  color: #333;
-  background-color: cyan;
-  text-decoration: none;
-  padding: 10px;
-  width: 110%;
-  text-align: center;
-}
-
-.genre-form div {
-  margin-top: 30px;
-}
-
-.btn {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.btn button {
-  margin-left: 10px;
-  background-color: cyan;
-  border: none;
-  padding: 10px 15px 10px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-  color: darkred;
-}
-
-.btn button:hover {
-  transform: scale(1.1);
-  transition: 0.2s;
-}
-/* COMPANY DELETE */
-.delete-company-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center ;
-  flex-direction: column;
-  align-items: center;
-}
-
-.delete-company-container button {
-  background-color: red;
-  color: black;
-  padding: 10px 15px 10px 15px;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-
-
-
-/* QUERY */
-@media only screen and (max-width: 420px) {
-
-
-/* CONTAINER */
-.container {
-  width: 80vw;
-  margin: 10px auto 5px auto;
-  height: 90vh;
-}
-
-/* HEADER */
-
-.header-navbar {
-  padding-top: 10px;
-  font-size: 20px;
-}
-
-.header-navbar div {
-  text-align: center;
-}
-
-.header-links {
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-}
-.header-navbar a {
-  color: yellow;
-  font-weight: bold;
-}
-
-/* CONTENT */
-.content {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 5px;
-  box-shadow: 0px 0px 10px 1px black;
-  border-radius: 15px;
-  margin-top: 30px;
-  padding: 7px 5px 0px 5px;
-}
-.content h1 {
-  color: black;
-  font-size: 1px;
-}
-.content-container {
-  width: 100%;
-}
-.content-info {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 15px;
-}
-.content-info h1 {
-  width: 100%;
-  text-align: center;
-  font-size: 30px;
-}
-.content-list {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 20px;
-}
-.form-grid {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-.form-grid a {
-  background-color: black;
-  box-shadow: 0px 0px 10px 1px black;
-  border: none;
-  border-radius: 10px;
-  padding: 5px 10px 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  text-shadow: 0px 1px 1px red;
-  margin: 10px;
-  color: yellow;
-  text-decoration: none;
-  font-size: 10px;
-}
-
-.form-grid a:hover {
-  transform: scale(1.1);
-}
-/********************************** GAMES */
-/* GAME LIST */
-.game-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-}
-.gamelist-grid {
-  padding: 10px;
-  margin-bottom: 10px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0px 0px 5px 5px black;
-  border-radius: 20px;
-  height: 300px;
-  background-color: black;
-  color: white;
-  overflow: hidden;
-}
-.grid-info {
-  margin-top: 0px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  text-align: center;
-  font-size: 22px;
-}
-.game-container a {
-  color: white;
-  font-size: 15px;
-  text-shadow: 0px 1px 1px  white;
-}
-.game-form {
-  width: 300px;
-}
-
-.game-form input,
-textarea {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  font-size: 1.2rem;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
-  border-radius: 0.2rem;
-  background-color: cyan;
-  border: none;
-  width: 90%;
-  display: block;
-  border-bottom: 0.3rem solid transparent;
-  transition: all 0.3s;
-}
-.game-form select {
-  background-color: cyan;
-  padding: 10px;
-  width: 111%;
-  text-align: center;
-  color:gray;
-  font-family: "Roboto", sans-serif;
-
-}
-
-.game-form div {
-  margin-top: 10px;
-}
-
-/* SINGLE GAME */
-.single-game-container {
-  height: 470px;
 }
 .single-game-container p {
   color: black;
-  max-height: 100px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-.single-game-container h1 {
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.single-game-container h2, h3 {
-  color: gray;
-  font-size: 20px;
-}
-.single-game-container span {
-  color: black;
+  font-size: 15px;
 }
 .single-game-container a {
   color: black;
@@ -876,15 +580,10 @@ textarea {
 
 /*DELETE GAME */
 .delete-game-container {
-display: flex;
-flex-wrap: wrap;
-flex-direction: column;
-align-items: center;
-height: 400px;
-justify-content: center;
-}
-.delete-game-container h1 {
-  font-size: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
 .delete-game-container button {
@@ -912,7 +611,7 @@ justify-content: center;
 
 .company-list {
   padding: 10px;
-  width: 100%;
+  width: 60%;
   text-align: center;
   box-shadow: 0px 0px 10px 5px black;
   border-radius: 20px;
@@ -921,10 +620,10 @@ justify-content: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 320px;
-  overflow: hidden;
-  margin-bottom: 20px;
+  height: 330px;
   background-color: black;
+  overflow-y: scroll;
+  overflow: hidden;
 }
 .company-list div {
   width: 100%;
@@ -945,21 +644,19 @@ justify-content: center;
 }
 .genre-form {
   width: 300px;
-  margin-bottom: 10px;
-  height: 100%;
 }
 
 .genre-form input,
 textarea {
   font-family: "Roboto", sans-serif;
   color: #333;
-  font-size: 1rem;
-  margin: 0 auto ;
-  padding: 1.5rem 2rem ;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
   border-radius: 0.2rem;
   background-color: cyan;
   border: none;
-  width: 70%;
+  width: 90%;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
@@ -974,7 +671,7 @@ textarea {
 }
 
 .genre-form div {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .btn {
@@ -1001,13 +698,9 @@ textarea {
 .delete-company-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center ;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 460px;
- padding: 10px 0 5px 0;
- overflow: hidden;
- overflow-y: scroll;
 }
 
 .delete-company-container button {
@@ -1016,34 +709,313 @@ textarea {
   padding: 10px 15px 10px 15px;
   border-radius: 10px;
   font-weight: bold;
-
 }
 
-/*  SINGLE COMPANY */
-.single-company-container {
-  height: 450px;
-  overflow: hidden;
-}
+@media only screen and (max-width: 430px) {
+  /* CONTAINER */
+  .container {
+    height: 700px;
+  }
 
-.single-company-container h1 {
-  font-size: 40px;
-  font-weight: bold;
-}
+  /* HEADER */
 
-.single-company-container h2, h3 {
-  color: gray;
-  font-size: 20px;
-}
-.single-company-container p {
-  color: black;
-  font-size: 15;
-  height: 200px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-.single-company-container a {
-  color: black;
-  font-weight: bold;
-}
+  .header-navbar {
+    font-size: 20px;
+    text-align: center;
+  }
 
+  /* CONTENT */
+  .content {
+    margin-top: 10px;
+    height: 400px;
+    text-align: center;
+  }
+  .content h1 {
+    color: black;
+    font-size: 40px;
+  }
+  .content-container {
+    width: 100%;
+  }
+  .content-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 20px;
+  }
+  .content-info h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+  }
+  .content-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+  }
+  .form-grid {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+  .form-grid a {
+    background-color: black;
+    box-shadow: 0px 0px 10px 1px black;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    text-shadow: 0px 1px 1px red;
+    margin: 10px;
+    color: yellow;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  .form-grid a:hover {
+    transform: scale(1.1);
+  }
+  /********************************** GAMES */
+  /* GAME LIST */
+  .game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .gamelist-grid {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 0px 20px 5px black;
+    border-radius: 20px;
+    height: 300px;
+    background-color: black;
+    color: white;
+    overflow-y: scroll;
+    overflow-y: hidden;
+  }
+  .grid-info {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+  }
+  .game-container a {
+    color: white;
+    font-size: 30px;
+    text-shadow: 0px 1px 1px white;
+  }
+
+  /* GAME FORM */
+  .game-form {
+    width: 300px;
+  }
+
+  .game-form input,
+  textarea {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    border-radius: 0.2rem;
+    background-color: cyan;
+    border: none;
+    width: 90%;
+    display: block;
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+  .game-form select {
+    background-color: cyan;
+    padding: 10px;
+    width: 111%;
+    text-align: center;
+    color: gray;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .game-form div {
+    margin-top: 5px;
+  }
+
+  .game-form textarea {
+    height: 100px;
+  }
+
+  /* SINGLE GAME */
+
+  .single-game-container {
+    max-height: 550px;
+  }
+
+  .single-game-container textarea {
+    background-color: white;
+    border: 3px solid black;
+    padding: 15px;
+    overflow-y: scroll;
+    overflow: hidden;
+    max-height: 130px;
+  }
+
+  .single-game-container h1 {
+    font-size: 50px;
+    font-weight: bold;
+  }
+
+  .single-game-container h2,
+  h3 {
+    color: gray;
+  }
+  .single-game-container span {
+    color: black;
+  }
+  .single-game-container p {
+    color: black;
+    font-size: 15px;
+  }
+  .single-game-container a {
+    color: black;
+    font-weight: bold;
+  }
+
+  /*DELETE GAME */
+  .delete-game-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .delete-game-container button {
+    background-color: red;
+    color: black;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+
+  /*************************************** COMPANIES */
+  /* COMPANIES LIST */
+  .company-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .info {
+    text-align: center;
+    width: 60%;
+    margin-top: 0px;
+    font-size: 35px;
+  }
+
+  .company-list {
+    padding: 10px;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0px 0px 10px 5px black;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 330px;
+    background-color: black;
+    overflow-y: scroll;
+    overflow: hidden;
+  }
+  .company-list div {
+    width: 100%;
+  }
+
+  .company-list a {
+    color: white;
+    font-size: 25px;
+    text-shadow: 0px 1px 1px white;
+  }
+  /* COMPANY FORM */
+
+  .form-title {
+    text-align: center;
+    width: 100%;
+    font-size: 45px;
+    color: black;
+  }
+  .genre-form {
+    width: 300px;
+  }
+
+  .genre-form input,
+  textarea {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    font-size: 1.2rem;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+    border-radius: 0.2rem;
+    background-color: cyan;
+    border: none;
+    width: 90%;
+    display: block;
+    border-bottom: 0.3rem solid transparent;
+    transition: all 0.3s;
+  }
+  .genre-form select {
+    color: #333;
+    background-color: cyan;
+    text-decoration: none;
+    padding: 10px;
+    width: 110%;
+    text-align: center;
+  }
+
+  .genre-form div {
+    margin-top: 10px;
+  }
+
+  .btn {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .btn button {
+    margin-left: 10px;
+    background-color: cyan;
+    border: none;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: darkred;
+  }
+
+  .btn button:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+  /* COMPANY DELETE */
+  .delete-company-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .delete-company-container button {
+    background-color: red;
+    color: black;
+    padding: 10px 15px 10px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+  }
 }
