@@ -22,6 +22,12 @@ router.get("/creategame", gameController.addGame)
 //POST GAME FORM
 router.post("/creategame", gameController.addGamePost)
 
+//DELETE GAME GET
+router.get("/games/:id/delete", gameController.gameDelete)
+
+//DELETE GAME POST
+router.post("/games/:id/delete", gameController.gameDeletePost);
+
 ///////////////////////////////////// COMPANY ROUTES //
 
 //GET FORM CREATE

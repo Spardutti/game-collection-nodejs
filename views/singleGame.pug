@@ -8,9 +8,10 @@ block content
         h2 Personal Rating: 
             span #{rating}
         h2 Brief Review:
-            span #{description}
+            p #{description}
         h2 Genre:  
             span  #{genre.name}
         h2 Status: 
             span #{status}
-        
+        p
+            a(href=game.url+"/delete") delete this game

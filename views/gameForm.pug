@@ -25,7 +25,6 @@ block content
             select(type="select" name="status" required)
                 option(value="" disabled selected) Game status...
                 each stat in status
-                    option(value=stat) #{stat}
-                                    
+                    option(value=stat) #{stat}                             
         div(class="btn")
             button(type="submit") Submit

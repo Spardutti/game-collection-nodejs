@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    div(class="delete-game-container")
+        h1 #{game.name}
+        p You can safely delete this game  
+        form(action="" method="POST")
+                input(type="hidden" name="gameid" required="true" value=game._id)
+                button(type="submit") Delete

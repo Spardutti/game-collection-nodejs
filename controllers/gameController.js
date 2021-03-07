@@ -75,6 +75,7 @@ exports.singleGame = function (req, res, next) {
         rating: results.game.rating,
         genre: results.game.genre,
         status: results.game.status,
+        game: results.game,
       });
     }
   );
@@ -165,3 +166,45 @@ exports.addGamePost = [
     }
   },
 ];
+
+//DELETE GAME GET
+exports.gameDelete = function (req, res, next) {
+  async.parallel(
+    {
+      game: function (callback) {
+        Game.findById(req.params.id).exec(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        return next(err);
+      }
+      //Success
+      res.render("gameDelete", {
+        title: "Delete Game",
+        game: results.game,
+      });
+    }
+  );
+};
+
+//DELETE GAME POST
+exports.gameDeletePost = function (req, res, next) {
+  async.parallel({ 
+    game: function (callback) {
+      Game.findById(req.params.gameid).exec(callback);
+    }
+  },
+    function (err, resulst) {
+      if (err) { return next(err) }
+      //Success
+      Game.findByIdAndRemove(
+        req.body.gameid,
+        function removeGame(err) {
+          if (err) { return next(err) };
+          //Success, proceed to delete
+          res.redirect("/home/games")
+        }
+      )
+  } )
+}

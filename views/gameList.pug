@@ -7,8 +7,8 @@ block content
         div(class="grid-info")
             p Game
             p Company
-        each game in gameList
-            div(class="gamelist-grid")
+        div(class="gamelist-grid")
+            each game in gameList
                 a(href=game.url) #{game.name}    
                 a(href=game.company.url)  #{game.company.name} 
 
