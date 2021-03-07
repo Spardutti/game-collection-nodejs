@@ -2,7 +2,7 @@ require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 let mongoose = require("mongoose");
-let mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.45f7b.mongodb.net/gamecollection?retryWrites=true&w=majority`;
+let mongoDB = `mongodb+srv://$:spardutti88@cluster0.45f7b.mongodb.net/gamecollection?retryWrites=true&w=majority`
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
