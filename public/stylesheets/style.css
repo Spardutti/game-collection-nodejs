@@ -384,7 +384,7 @@ input[type=number] {
   width: 80vw;
   background-color: white;
   margin: 20px auto 10px auto;
-  height: 95vh;
+  height: 90vh;
   box-shadow: 0px 0px 20px 7px black;
   border-radius: 10px;
 }
@@ -695,23 +695,15 @@ textarea {
 /* CONTAINER */
 .container {
   width: 80vw;
-  background-color: white;
   margin: 10px auto 5px auto;
-  height: 95vh;
-  box-shadow: 0px 0px 20px 7px black;
-  border-radius: 10px;
+  height: 90vh;
 }
 
 /* HEADER */
 
 .header-navbar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   padding-top: 10px;
-  font-size: 15px;
-  background-color: black;
-  color: white;
+  font-size: 20px;
 }
 
 .header-navbar div {
