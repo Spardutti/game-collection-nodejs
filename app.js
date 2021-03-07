@@ -1,8 +1,8 @@
+require("dotenv").config();
 var createError = require("http-errors");
 var express = require("express");
 let mongoose = require("mongoose");
-let database = require("./database");
-let mongoDB = process.env.MONGODB_URI || database;
+let mongoDB = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.45f7b.mongodb.net/gamecollection?retryWrites=true&w=majority`;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
@@ -16,7 +16,6 @@ var usersRouter = require("./routes/users");
 let catalog = require("./routes/catalog");
 
 var app = express();
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

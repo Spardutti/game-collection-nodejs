@@ -14,7 +14,9 @@
   "dependencies": {
     "async": "^3.2.0",
     "cookie-parser": "~1.4.4",
+    "custom-env": "^2.0.1",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express-validator": "^6.10.0",
     "http-errors": "~1.6.3",
     "luxon": "^1.26.0",
