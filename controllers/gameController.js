@@ -130,40 +130,14 @@ exports.addGamePost = [
       description: req.body.description,
     });
 
-    if (!errors.isEmpty()) {
-      //There are errors, display the from again with sanitized fields
-
-      //Get all authors and genres from.
-      async.parallel(
-        {
-          companies: function (callback) {
-            Company.find(callback);
-          },
-          genres: function (callback) {
-            Genre.find(callback);
-          },
-        },
-        function (err, results) {
-          res.render("gameForm", {
-            title: "Add Game",
-            companies: results.companies,
-            genres: results.genres,
-            game: game,
-            errors: errors.array(),
-          });
-        }
-      );
-      return;
-    } else {
-      // Save Game
-      game.save(function (err) {
-        if (err) {
-          return next(err);
-        }
-        //Success
-        res.redirect(game.url);
-      });
-    }
+    // Save Game
+    game.save(function (err) {
+      if (err) {
+        return next(err);
+      }
+      //Success
+      res.redirect(game.url);
+    });
   },
 ];
 
@@ -190,21 +164,24 @@ exports.gameDelete = function (req, res, next) {
 
 //DELETE GAME POST
 exports.gameDeletePost = function (req, res, next) {
-  async.parallel({ 
-    game: function (callback) {
-      Game.findById(req.params.gameid).exec(callback);
-    }
-  },
+  async.parallel(
+    {
+      game: function (callback) {
+        Game.findById(req.params.gameid).exec(callback);
+      },
+    },
     function (err, resulst) {
-      if (err) { return next(err) }
+      if (err) {
+        return next(err);
+      }
       //Success
-      Game.findByIdAndRemove(
-        req.body.gameid,
-        function removeGame(err) {
-          if (err) { return next(err) };
-          //Success, proceed to delete
-          res.redirect("/home/games")
+      Game.findByIdAndRemove(req.body.gameid, function removeGame(err) {
+        if (err) {
+          return next(err);
         }
-      )
-  } )
-}
+        //Success, proceed to delete
+        res.redirect("/home/games");
+      });
+    }
+  );
+};

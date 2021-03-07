@@ -1,6 +1,7 @@
 let express = require("express");
 let router = express.Router();
 
+
 let gameController = require("../controllers/gameController");
 let companyController = require("../controllers/companyController");
 let genreController = require("../controllers/genreController");
@@ -27,6 +28,7 @@ router.get("/games/:id/delete", gameController.gameDelete)
 
 //DELETE GAME POST
 router.post("/games/:id/delete", gameController.gameDeletePost);
+
 
 ///////////////////////////////////// COMPANY ROUTES //
 
