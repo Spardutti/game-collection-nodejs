@@ -2,7 +2,7 @@ var createError = require("http-errors");
 var express = require("express");
 let mongoose = require("mongoose");
 let database = require("./database");
-let mongoDB = database;
+let mongoDB = process.env.MONGODB_URI || database;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 let db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
