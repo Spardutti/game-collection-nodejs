@@ -29,6 +29,12 @@ router.get("/games/:id/delete", gameController.gameDelete)
 //DELETE GAME POST
 router.post("/games/:id/delete", gameController.gameDeletePost);
 
+//UPDATE GAME GET
+router.get("/games/:id/update", gameController.updateGame);
+
+//UPDATE GAME POST
+router.post("/games/:id/update", gameController.updateGamePost);
+
 
 ///////////////////////////////////// COMPANY ROUTES //
 
@@ -49,6 +55,12 @@ router.get("/companies", companyController.companyList);
 
 //SINGLE COMPANY
 router.get("/companies/:id", companyController.singleCompany);
+
+//UPDATE COMPANY GET
+router.get("/companies/:id/update", companyController.companyUpdate)
+
+//UPDATE COMPANY POST
+router.post("/companies/:id/update", companyController.companyUpdatePost)
 
 
 ///////////////////////////////////// GENRE ROUTES //

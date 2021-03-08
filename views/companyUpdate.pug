@@ -1,0 +1,18 @@
+extends layout 
+
+block content
+    
+    h1(class="form-title") #{title}
+
+    form(method="POST" action="" class="genre-form")
+        div
+            input(type='text', value=company.name name='name')
+        div 
+            input(type="text", onfocus="(this.type='date')",  name="year", value=company.yearFormatted)
+        div
+            textarea(name="description",  cols="30", rows="6") #{company.description}
+        div(class="btn")
+            button(type="submit") Submit
+    if errors
+        each error in errors
+            li error.msg

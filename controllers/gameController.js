@@ -185,3 +185,53 @@ exports.gameDeletePost = function (req, res, next) {
     }
   );
 };
+//UPDATE GAME GET
+exports.updateGame = function (req, res, next) {
+  async.parallel(
+    {
+      game: function (callback) {
+        Game.findById(req.params.id).exec(callback);
+      },
+      company: function (callback) {
+        Company.find(callback);
+      },
+      genre: function (callback) {
+        Genre.find(callback);
+      },
+    },
+    function (err, results) {
+      if (err) {
+        next(err);
+      }
+      //Succes
+      res.render("gameUpdate", {
+        game: results.game,
+        companies: results.company,
+        genres: results.genre,
+        status: ["Completed", "Playing", "Wish List", "Collecting Dust"],
+        title: results.game.name,
+      });
+    }
+  );
+};
+
+//UPDATE GAME POST
+exports.updateGamePost = function (req, res, next) {
+  let game = new Game({
+    name: req.body.name,
+    company: req.body.company,
+    rating: req.body.rating,
+    genre: req.body.genre,
+    status: req.body.status,
+    description: req.body.description,
+    _id: req.params.id,
+  });
+
+  Game.findByIdAndUpdate(req.params.id, game, {}, function (err, thegame) {
+    if (err) {
+      return next(err);
+    }
+    //Success
+    res.redirect(thegame.url);
+  });
+};

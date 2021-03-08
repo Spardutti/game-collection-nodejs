@@ -8,10 +8,12 @@ block content
         h2 Personal Rating: 
             span #{rating}
         h2 Brief Review:
-            textarea #{description}
+            p spa#{description}
         h2 Genre:  
             span  #{genre.name}
         h2 Status: 
             span #{status}
-        p
-            a(href=game.url+"/delete") delete this game
+        hr    
+        div(class="edit-delete-btns")
+            a(href=game.url+"/delete" class="delete-btn") Delete
+            a(href=game.url+"/update" class="edit-btn") Edit

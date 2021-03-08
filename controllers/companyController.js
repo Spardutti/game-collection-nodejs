@@ -147,3 +147,32 @@ exports.companyDeletePost = function (req, res, next) {
     }
   );
 };
+
+//COMPANY UPDATE GET
+exports.companyUpdate = function (req, res, next) {
+  async.parallel({
+    company: function (callback) {
+      Company.findById(req.params.id).exec(callback)
+    }
+  },
+    function (err, results) {
+      if (err) { return next(err) }
+      //Success
+      res.render("companyUpdate", {company: results.company, title: results.company.name})
+  })
+}
+
+//COMPANY UPDATE POST
+exports.companyUpdatePost = function (req, res, next) {
+  let company = new Company({
+    name: req.body.name,
+    year: req.body.year,
+    description: req.body.year,
+    _id: req.params.id,
+  })
+  Company.findByIdAndUpdate(req.params.id, company, {}, function (err, theCompany) {
+    if (err) { return next(err) }
+    //Success
+    res.redirect(theCompany.url)
+  })
+};

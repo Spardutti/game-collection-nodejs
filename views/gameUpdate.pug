@@ -1,0 +1,30 @@
+extends layout 
+
+block content
+    
+    h1(class="form-title") #{title}
+
+    form(method="POST" action="" class="game-form")
+        div
+            input(type='text', value=game.name name='name' required)
+        div 
+            input(type="number", name="rating", value=game.rating required)
+        div
+            textarea(name="description", value=game.description cols="30", rows="6" required) #{game.description}
+        div
+            select(type="select" name="company" required)
+                option(value=game.company selected ) 
+                for company in companies
+                    option(value=company._id) #{company.name}        
+        div
+            select(type="select" placeholder="Select Genre" name="genre" required)
+                option(value=game.genre selected) 
+                for genre in genres
+                    option(value=genre._id) #{genre.name}  
+        div
+            select(type="select" name="status" required)
+                option(value=game.status selected) 
+                each stat in status
+                    option(value=stat) #{stat}                             
+        div(class="btn")
+            button(type="submit") Submit

@@ -549,12 +549,14 @@ textarea {
 }
 
 .single-game-container textarea {
-  background-color: white;
-  border: 3px solid black;
+  background-color: rgba(255, 255, 255, 0.699);
   padding: 15px;
   overflow-y: scroll;
   overflow: hidden;
   max-height: 130px;
+  width: 100%;
+  box-shadow: 0px 0px 5px 3px black;
+  margin-top: 3px;
 }
 
 .single-game-container h1 {
@@ -576,6 +578,26 @@ h3 {
 .single-game-container a {
   color: black;
   font-weight: bold;
+}
+
+.edit-delete-btns {
+  display: flex;
+  justify-content: space-around;
+}
+.delete-btn {
+  background-color: red;
+  color: yellow;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.edit-btn {
+  background-color: rgb(13, 146, 117);
+  color: yellow;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 /*DELETE GAME */
@@ -732,272 +754,127 @@ textarea {
   }
   .content h1 {
     color: black;
-    font-size: 40px;
+    font-size: 30px;
   }
-  .content-container {
-    width: 100%;
-  }
+ 
   .content-info {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    font-size: 20px;
+    font-size: 15px;
   }
   .content-info h1 {
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
+    font-size: 40px;
   }
   .content-list {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 25px;
-  }
-  .form-grid {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-  }
-  .form-grid a {
-    background-color: black;
-    box-shadow: 0px 0px 10px 1px black;
-    border: none;
-    border-radius: 10px;
-    padding: 5px 10px 5px 10px;
-    font-weight: bold;
-    cursor: pointer;
-    text-shadow: 0px 1px 1px red;
-    margin: 10px;
-    color: yellow;
-    text-decoration: none;
+
     font-size: 20px;
+  }
+
+  .form-grid a {
+    font-size: 15px;
   }
 
   .form-grid a:hover {
     transform: scale(1.1);
+    transition: .3s;
   }
   /********************************** GAMES */
   /* GAME LIST */
-  .game-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
   .gamelist-grid {
-    padding: 10px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0px 0px 20px 5px black;
-    border-radius: 20px;
-    height: 300px;
-    background-color: black;
-    color: white;
-    overflow-y: scroll;
-    overflow-y: hidden;
+    font-size: 15px;
+    height: 250px;
   }
   .grid-info {
-    margin-top: 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    text-align: center;
-    font-size: 30px;
+    margin-top: 0px;
+    font-size: 20px;
   }
+  
   .game-container a {
     color: white;
-    font-size: 30px;
+    font-size: 20px;
     text-shadow: 0px 1px 1px white;
   }
 
   /* GAME FORM */
-  .game-form {
-    width: 300px;
-  }
 
   .game-form input,
   textarea {
-    font-family: "Roboto", sans-serif;
-    color: #333;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1rem 2rem;
-    border-radius: 0.2rem;
-    background-color: cyan;
-    border: none;
-    width: 90%;
-    display: block;
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
+    font-size: 15px;
+    padding: 3px 6px;
+    width: 70%;
+    text-align: center;
   }
   .game-form select {
-    background-color: cyan;
-    padding: 10px;
-    width: 111%;
-    text-align: center;
-    color: gray;
-    font-family: "Roboto", sans-serif;
-  }
-
-  .game-form div {
-    margin-top: 5px;
-  }
-
-  .game-form textarea {
-    height: 100px;
+    font-size: 15px;
+    padding: 3px 6px;
+    width: 70%;
   }
 
   /* SINGLE GAME */
-
   .single-game-container {
-    max-height: 550px;
+    height: 420px;
+    border-radius: 10px;
   }
 
-  .single-game-container textarea {
-    background-color: white;
+  .single-game-container p {
     border: 3px solid black;
-    padding: 15px;
-    overflow-y: scroll;
-    overflow: hidden;
-    max-height: 130px;
+    padding: 8px;
+    height: 130px;
+    width: 80%;
+    margin: 0 auto;
+    word-wrap: normal;
   }
 
   .single-game-container h1 {
-    font-size: 50px;
-    font-weight: bold;
-  }
+    font-size: 25px;  }
 
   .single-game-container h2,
   h3 {
     color: gray;
+    font-size: 15px;
   }
   .single-game-container span {
     color: black;
-  }
-  .single-game-container p {
-    color: black;
-    font-size: 15px;
+    font-size: 12px;
   }
   .single-game-container a {
     color: black;
     font-weight: bold;
   }
-
-  /*DELETE GAME */
-  .delete-game-container {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .delete-game-container button {
-    background-color: red;
-    color: black;
-    padding: 10px 15px 10px 15px;
-    border-radius: 10px;
-    font-weight: bold;
-  }
-
   /*************************************** COMPANIES */
   /* COMPANIES LIST */
-  .company-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-  }
+
   .info {
     text-align: center;
     width: 60%;
     margin-top: 0px;
-    font-size: 35px;
+    font-size: 25px;
   }
 
   .company-list {
-    padding: 10px;
-    width: 60%;
-    text-align: center;
-    box-shadow: 0px 0px 10px 5px black;
-    border-radius: 20px;
-    font-size: 20px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    height: 330px;
-    background-color: black;
-    overflow-y: scroll;
-    overflow: hidden;
-  }
-  .company-list div {
-    width: 100%;
+    padding: 6px;
+    width: 90%;
+    font-size: 10px;
+    height: 250px;
   }
 
   .company-list a {
-    color: white;
-    font-size: 25px;
-    text-shadow: 0px 1px 1px white;
+    font-size: 20px;
   }
   /* COMPANY FORM */
-
-  .form-title {
-    text-align: center;
-    width: 100%;
-    font-size: 45px;
-    color: black;
-  }
-  .genre-form {
-    width: 300px;
-  }
-
   .genre-form input,
   textarea {
-    font-family: "Roboto", sans-serif;
-    color: #333;
-    font-size: 1.2rem;
-    margin: 0 auto;
-    padding: 1.5rem 2rem;
-    border-radius: 0.2rem;
-    background-color: cyan;
-    border: none;
-    width: 90%;
-    display: block;
-    border-bottom: 0.3rem solid transparent;
-    transition: all 0.3s;
-  }
-  .genre-form select {
-    color: #333;
-    background-color: cyan;
-    text-decoration: none;
-    padding: 10px;
-    width: 110%;
+    font-size: 15px;
+    padding: 3px 6px;
+    width: 70%;
     text-align: center;
   }
-
-  .genre-form div {
-    margin-top: 10px;
+  .genre-form select {
+    font-size: 15px;
+    padding: 3px 6px;
+    width: 70%;
   }
-
   .btn {
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
   }
-
-  .btn button {
-    margin-left: 10px;
-    background-color: cyan;
-    border: none;
-    padding: 10px 15px 10px 15px;
-    border-radius: 10px;
-    font-weight: bold;
-    color: darkred;
-  }
-
   .btn button:hover {
     transform: scale(1.1);
     transition: 0.2s;
@@ -1018,4 +895,13 @@ textarea {
     border-radius: 10px;
     font-weight: bold;
   }
+  /* SINGLE COMPANY */
+.single-company-container {
+  height: 420px;
+}
+.text-container {
+  height: 250px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
 }
