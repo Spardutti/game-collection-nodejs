@@ -1,6 +1,6 @@
 # GAME COLLECTION
 
-Link a la app [GameCollection] (https://hidden-atoll-40469.herokuapp.com/home/)
+Link a la app [Game Collection](https://hidden-atoll-40469.herokuapp.com/home/)
 
 # El Proyecto
 
