@@ -2,14 +2,15 @@ extends layout
 
 block content
   div(class="content-container")
-    div(class="form-grid")
-      a(href="/home/creategame") Add Game
-      a(href="/home/companyform") Add Company
-      a(href="/home/genreform") Add Genre
+    if user
+      div(class="form-grid")
+        a(href="/home/creategame") Add Game
+        a(href="/home/companyform") Add Company
+        a(href="/home/genreform") Add Genre
     div(class="content-info")
       h1= title
       div
-        p This is the general information of the Games
+        p This is the general information of the game library
 
       if error 
         p no data to display

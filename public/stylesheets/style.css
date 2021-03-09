@@ -733,7 +733,47 @@ textarea {
   font-weight: bold;
 }
 
+/* LOG ON */
+.log-in input {
+  font-family: "Roboto", sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: cyan;
+  border: none;
+  width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.log-in button {
+  margin-left: 10px;
+  background-color: cyan;
+  border: none;
+  padding: 10px 15px 10px 15px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.log-in button:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
 @media only screen and (max-width: 430px) {
+  /* LOG IN */
+
+  .log-in input {
+    font-size: 1.2rem;
+    margin: 5px auto;
+    padding: 1rem 1.5rem;
+    width: 80%;
+  }
+
   /* CONTAINER */
   .container {
     height: 700px;
@@ -742,7 +782,7 @@ textarea {
   /* HEADER */
 
   .header-navbar {
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
   }
 
@@ -756,7 +796,7 @@ textarea {
     color: black;
     font-size: 30px;
   }
- 
+
   .content-info {
     font-size: 15px;
   }
@@ -764,7 +804,6 @@ textarea {
     font-size: 40px;
   }
   .content-list {
-
     font-size: 20px;
   }
 
@@ -774,19 +813,25 @@ textarea {
 
   .form-grid a:hover {
     transform: scale(1.1);
-    transition: .3s;
+    transition: 0.3s;
   }
   /********************************** GAMES */
   /* GAME LIST */
   .gamelist-grid {
     font-size: 15px;
     height: 250px;
+    align-items: center;
+    overflow: scroll;
   }
+  .gamelist-grid a {
+    margin-top: 5px;
+  }
+
   .grid-info {
     margin-top: 0px;
     font-size: 20px;
   }
-  
+
   .game-container a {
     color: white;
     font-size: 20px;
@@ -824,7 +869,8 @@ textarea {
   }
 
   .single-game-container h1 {
-    font-size: 25px;  }
+    font-size: 25px;
+  }
 
   .single-game-container h2,
   h3 {
@@ -854,6 +900,7 @@ textarea {
     width: 90%;
     font-size: 10px;
     height: 250px;
+    overflow: scroll;
   }
 
   .company-list a {
@@ -896,12 +943,12 @@ textarea {
     font-weight: bold;
   }
   /* SINGLE COMPANY */
-.single-company-container {
-  height: 420px;
-}
-.text-container {
-  height: 250px;
-  overflow: hidden;
-  overflow-y: scroll;
-}
+  .single-company-container {
+    height: 420px;
+  }
+  .text-container {
+    height: 250px;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
 }

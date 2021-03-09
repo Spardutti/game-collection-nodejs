@@ -41,6 +41,7 @@ exports.singleCompany = function (req, res, next) {
         year: results.company.yearFormatted,
         description: results.company.description,
         company: results.company,
+        user: req.user,
       });
     }
   );

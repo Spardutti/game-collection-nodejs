@@ -1,0 +1,10 @@
+extends layout
+
+block content
+    if user 
+        h1 You are already logged in
+    else 
+        form(action="" method="POST" class="log-in")
+            input(name="username" type="text" placeholder="username")
+            input(name="password" type="text" placeholder="password")
+            button(type="submit") Log in

@@ -1,13 +1,34 @@
 let express = require("express");
 let router = express.Router();
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
 
 let Game = require("../models/game");
 let Genre = require("../models/genre");
 let Company = require("../models/company");
+let User = require("../models/user");
 
 let { body, validationResult } = require("express-validator");
 
 let async = require("async");
+
+//SINGUP PAGE GET
+exports.signUp = function (req, res, next) {
+  res.render("logIn", { user: req.user });
+};
+
+//SIGN UP PAGE POST
+exports.signUpPost = function (req, res, next) {
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+  }).save((err) => {
+    if (err) return next(err);
+    //success
+    res.redirect("/");
+  });
+};
 
 // HOME PAGE //
 exports.homePage = function (req, res) {
@@ -29,6 +50,7 @@ exports.homePage = function (req, res) {
         title: "Game Collection",
         error: err,
         data: results,
+        user: req.user,
       });
     }
   );
@@ -76,6 +98,7 @@ exports.singleGame = function (req, res, next) {
         genre: results.game.genre,
         status: results.game.status,
         game: results.game,
+        user: req.user,
       });
     }
   );

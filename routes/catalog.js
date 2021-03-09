@@ -1,5 +1,9 @@
 let express = require("express");
 let router = express.Router();
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
 
 
 let gameController = require("../controllers/gameController");
@@ -8,6 +12,15 @@ let genreController = require("../controllers/genreController");
 
 // HOME PAGE //
 router.get("/", gameController.homePage);
+
+//SIGN UP
+router.get("/sign", gameController.signUp);
+
+//SIGN UP POST
+router.post("/sign", passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/"
+}));
 
 ///////////////////////////////////// GAME ROUTES //
 
