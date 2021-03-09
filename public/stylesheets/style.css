@@ -763,7 +763,7 @@ textarea {
   transform: scale(1.1);
   transition: 0.2s;
 }
-
+/************************************************** QUERYS ***********************/
 @media only screen and (max-width: 430px) {
   /* LOG IN */
 
@@ -778,6 +778,7 @@ textarea {
   .container {
     height: 700px;
     width: 90%;
+    margin-top: 5px;
   }
 
   /* HEADER */
