@@ -1,6 +1,6 @@
-# GAME COLLECTION
+# SERVER IS NO LONGER RUNNING.
 
-Link a la app [Game Collection](https://hidden-atoll-40469.herokuapp.com/home/)
+# GAME COLLECTION
 
 # El Proyecto
 
